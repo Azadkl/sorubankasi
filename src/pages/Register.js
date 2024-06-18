@@ -75,8 +75,8 @@ function Register() {
                 <Option value="teacher">Teacher</Option>
               </Select>
             </Form.Item>
-            <Form.Item className="button-container">
-              <Button type="primary" htmlType="submit">
+            <Form.Item>
+              <Button className="button-container" type="primary" htmlType="submit">
                 Register
               </Button>
             </Form.Item>

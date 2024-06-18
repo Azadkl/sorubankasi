@@ -1,14 +1,12 @@
 .layout {
-  background-color: #173055; /* Koyu mavi tonu */
+  background-color: #040912; /* Koyu mavi tonu */
 }
 
 .site-layout-content {
-  background: #001529; /* Koyu mavi tonu */
-  padding: 24px;
-  min-height: 280px;
-  margin: 24px 0;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #03121f; /* Koyu mavi tonu */
+  padding: 110px;
+  min-height: 28px;
+  margin: 24px ;
   text-align: center;
   animation: fadeIn 1s ease; /* Sayfa yüklendiğinde fadeIn animasyonu */
   position: relative;
@@ -19,48 +17,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .title {
   font-size: 36px;
-  color: #1890ff; /* Parlak mavi tonu */
-  margin-bottom: 16px; /* Başlık ile açıklama arasındaki boşluğu azalttım */
+  color: #060000; /* Parlak mavi tonu */
+  margin-bottom: 16px;
+  text-align: center; /* Başlık ile açıklama arasındaki boşluğu azalttım */
 }
 
-.description {
-  color: #ffffff; /* Beyaz */
-  font-size: 18px;
-  margin-bottom: 24px; /* Açıklama ile buton arasındaki boşluğu ayarladım */
-}
 
-.explore-button {
-  background-color: #1890ff; /* Parlak mavi tonu */
-  color: #fff; /* Beyaz */
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.back{
-  background-image: url(/public/9c7be43979a736a8695361a544630b97.jpg);
-  background-position: center;
-  background-size: cover;
-}
-.explore-button:hover {
-  background-color: #40a9ff; /* Daha açık mavi tonu */
-}
-
-.footer {
-  background-color: #001529; /* Koyu mavi tonu */
-  color: #fff; /* Beyaz */
-  padding: 12px 0;
-}

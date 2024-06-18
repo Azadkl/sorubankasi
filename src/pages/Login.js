@@ -66,8 +66,8 @@ function Login({ onLogin }) {
             >
               <Input.Password placeholder="Password" />
             </Form.Item>
-            <Form.Item className="button-container">
-              <Button type="primary" htmlType="submit" className="login-button">
+            <Form.Item >
+              <Button className="button-container" type="primary" htmlType="submit">
                 Login
               </Button>
             </Form.Item>

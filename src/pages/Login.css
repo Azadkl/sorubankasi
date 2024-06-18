@@ -6,21 +6,6 @@
   animation: fadeIn 1s ease; /* Sayfa yüklendiğinde fadeIn animasyonu */
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.back{
-  background-image: url(/public/9c7be43979a736a8695361a544630b97.jpg);
-  background-position: center;
-  background-size: cover;
-}
 
 h1 {
   font-size: 24px;
@@ -30,7 +15,7 @@ h1 {
 }
 
 form {
-  width: 100%;
+  width: 1000%;
 }
 
 .form-item {
@@ -42,23 +27,3 @@ form {
   justify-content: center;
 }
 
-.login-button {
-  width: 100%;
-  background-color: #1890ff; /* Parlak mavi tonu */
-  border-color: #1890ff; /* Parlak mavi tonu */
-}
-
-.login-button:hover {
-  background-color: #40a9ff; /* Daha açık mavi tonu */
-  border-color: #40a9ff; /* Daha açık mavi tonu */
-}
-
-.login-button:active,
-.login-button:focus {
-  background-color: #096dd9; /* Daha koyu mavi tonu */
-  border-color: #096dd9; /* Daha koyu mavi tonu */
-}
-
-.ant-notification-notice-message {
-  font-size: 14px;
-}
