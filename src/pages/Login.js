@@ -6,7 +6,7 @@ import './Login.css'; // CSS dosyasını import ediyoruz
 
 const { Content } = Layout;
 
-const SHEETY_GET_URL = 'https://v1.nocodeapi.com/azad47/google_sheets/BghSKzulzfPRVdhP?tabId=Sayfa1';
+const SHEETY_GET_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa1';
 
 function Login({ onLogin }) {
   const [users, setUsers] = useState([]);

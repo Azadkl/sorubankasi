@@ -17,9 +17,9 @@ moment.locale('tr');
 const { Content } = Layout;
 
 const QUESTIONS_SHEETY_URL =
-  "https://v1.nocodeapi.com/azad47/google_sheets/BghSKzulzfPRVdhP?tabId=Sayfa2";
+  "https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa2";
 const EXAMS_SHEETY_URL =
-  "https://v1.nocodeapi.com/azad47/google_sheets/BghSKzulzfPRVdhP?tabId=Sayfa3";
+  "https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa3";
 
 function TeacherDashboard() {
   const [questions, setQuestions] = useState([]);

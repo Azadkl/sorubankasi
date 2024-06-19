@@ -5,7 +5,7 @@ import './Register.css'; // CSS dosyasını import ediyoruz
 const { Content } = Layout;
 const { Option } = Select;
 
-const SHEETY_POST_URL = 'https://v1.nocodeapi.com/azad47/google_sheets/BghSKzulzfPRVdhP?tabId=Sayfa1';
+const SHEETY_POST_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa1';
 
 function Register() {
   const onFinish = async (values) => {
