@@ -3,82 +3,78 @@ import { Layout, List, notification, Button } from 'antd';
 
 const { Content } = Layout;
 
-const EXAMS_SHEETY_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa3';
-const QUESTIONS_SHEETY_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa2';
-const RESULTS_SHEETY_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa4';
+// const EXAMS_SHEETY_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa3';
+// const QUESTIONS_SHEETY_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa2';
 
 function getRandomBoolean() {
   return Math.random() >= 0.5;
 }
 
 function StudentDashboard() {
-  const [exams, setExams] = useState([]);
-  const [questions, setQuestions] = useState([]);
-  const [results, setResults] = useState([]);
-  const [currentExam, setCurrentExam] = useState(null);
-  const [totalScore, setTotalScore] = useState(0);
+  // const [exams, setExams] = useState([]);
+  // const [questions, setQuestions] = useState([]);
+  // const [results, setResults] = useState([]);
+  // const [currentExam, setCurrentExam] = useState(null);
+  // const [totalScore, setTotalScore] = useState(0);
 
-  useEffect(() => {
-    fetchExams();
-  }, []);
+  // useEffect(() => {
+  //   fetchExams();
+  // }, []);
 
-  const fetchExams = async () => {
-    try {
-      const response = await fetch(EXAMS_SHEETY_URL);
-      const result = await response.json();
-      console.log(result); // API'den dönen veriyi konsola yazdır
+  // const fetchExams = async () => {
+  //   try {
+  //     const response = await fetch(EXAMS_SHEETY_URL);
+  //     const result = await response.json();
+  //     console.log('Exams:', result.data); // Debugging için sınavları yazdır
 
-      if (result.data && Array.isArray(result.data)) {
-        const formattedExams = result.data.map(exam => ({
-          fields: exam
-        }));
-        setExams(formattedExams);
-      } else {
-        throw new Error('Invalid exams data format');
-      }
-    } catch (error) {
-      console.error(error);
-      notification.error({ message: 'Sınavlar yüklenemedi' });
-    }
-  };
+  //     if (result.data && Array.isArray(result.data)) {
+  //       setExams(result.data);
+  //     } else {
+  //       throw new Error('Invalid exams data format');
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     notification.error({ message: 'Sınavlar yüklenemedi' });
+  //   }
+  // };
 
-  const fetchQuestions = async (examCode) => {
-    try {
-      const url = `${QUESTIONS_SHEETY_URL}&filterByFormula=${encodeURIComponent(`examCode="${examCode}"`)}`;
-      console.log(`Fetching questions for exam code: ${examCode}`);
-      const response = await fetch(url);
-      const result = await response.json();
-      console.log(result); // API'den dönen veriyi konsola yazdır
+  // const fetchQuestions = async (examCode) => {
+  //   try {
+  //     const url = `${QUESTIONS_SHEETY_URL}&filterByFormula=${encodeURIComponent(`examCode="${examCode}"`)}`;
+  //     console.log(`Fetching questions for exam code: ${examCode}`); // Debugging için sınav kodunu yazdır
+  //     const response = await fetch(url);
+  //     const result = await response.json();
+  //     console.log('Questions:', result.data); // Debugging için soruları yazdır
 
-      if (result.data && Array.isArray(result.data)) {
-        const formattedQuestions = result.data.map(question => ({
-          fields: question
-        }));
-        setQuestions(formattedQuestions);
-        setCurrentExam(examCode);
+  //     // Soruları sınav koduna göre filtrele
+  //     const filteredQuestions = result.data.filter(question => question.examCode === examCode);
 
-        // Öğrencinin soruları çözüp sonuçları doldurması ve puan hesaplama
-        const generatedResults = formattedQuestions.map(question => {
-          const isCorrect = getRandomBoolean();
-          return {
-            question: question.fields.text,
-            result: isCorrect ? 'Correct' : 'Incorrect',
-            score: isCorrect ? parseInt(question.fields.points, 10) : 0
-          };
-        });
-        setResults(generatedResults);
+  //     if (filteredQuestions && Array.isArray(filteredQuestions)) {
+  //       setQuestions(filteredQuestions);
+  //       setCurrentExam(examCode);
 
-        // Toplam puanı hesaplama
-        const totalScore = generatedResults.reduce((sum, result) => sum + result.score, 0);
-        setTotalScore(totalScore);
-      } else {
-        throw new Error('Invalid questions data format');
-      }
-    } catch (error) {
-      console.error(error);
-      notification.error({ message: 'Sorular yüklenemedi' });
-    }
-  };
+  //       // Öğrencinin soruları çözüp sonuçları doldurması ve puan hesaplama
+  //       const generatedResults = filteredQuestions.map(question => {
+  //         const isCorrect = getRandomBoolean();
+  //         return {
+  //           question: question.text,
+  //           result: isCorrect ? 'Correct' : 'Incorrect',
+  //           score: isCorrect ? parseInt(question.points, 10) : 0
+  //         };
+  //       });
+  //       setResults(generatedResults);
+
+  //       // Toplam puanı hesaplama
+  //       const totalScore = generatedResults.reduce((sum, result) => sum + result.score, 0);
+  //       setTotalScore(totalScore);
+  //     } else {
+  //       throw new Error('Invalid questions data format');
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     notification.error({ message: 'Sorular yüklenemedi' });
+  //   }
+  // };
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -86,9 +82,9 @@ function StudentDashboard() {
         <h1>Öğrenci Paneli</h1>
         <List
           bordered
-          dataSource={exams}
+          // dataSource={exams}
           renderItem={item => {
-            const code = item.fields?.code;
+            const code = item.code;
             if (!code) {
               console.error('Invalid exam item:', item);
               return null;
@@ -96,19 +92,19 @@ function StudentDashboard() {
             return (
               <List.Item>
                 Sınav Kodu: {code}
-                <Button onClick={() => fetchQuestions(code)} style={{ marginLeft: '10px' }}>
+                <Button /*onClick={() => fetchQuestions(code)}*/ style={{ marginLeft: '10px' }}>
                   Sınavı Görüntüle
                 </Button>
               </List.Item>
             );
           }}
         />
-        {currentExam && (
+        {/*currentExam && questions.length > 0 && (
           <div>
             <h2>Sınav: {currentExam}</h2>
             <List
               bordered
-              dataSource={results}
+              // dataSource={results}
               renderItem={item => (
                 <List.Item>
                   <div>
@@ -122,6 +118,12 @@ function StudentDashboard() {
             <h3>Toplam Puan: {totalScore}</h3>
           </div>
         )}
+        {currentExam && questions.length === 0 && (
+          <div>
+            <h2>Sınav: {currentExam}</h2>
+            <p>Bu sınav için henüz soru eklenmemiş.</p>
+          </div>
+        )*/}
       </Content>
     </Layout>
   );
