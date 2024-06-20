@@ -34,7 +34,7 @@ function Login({ onLogin }) {
   //   const user = users.find(user => user.username === values.username && user.password === values.password);
 
   //   if (user) {
-  //     notification.success({ message: 'Login successful!' });
+  //     notification.success({ message: 'Giriş Yapıldı' });
   //     onLogin(user.username, user.password);
   //     if (user.role === 'teacher') {
   //       navigate('/TeacherDashboard');
@@ -42,7 +42,7 @@ function Login({ onLogin }) {
   //       navigate('/StudentDashboard');
   //     }
   //   } else {
-  //     notification.error({ message: 'Invalid username or password' });
+  //     notification.error({ message: 'Kullanıcı adı veya parola yanlış' });
   //   }
   // };
 
@@ -50,25 +50,25 @@ function Login({ onLogin }) {
     <Layout className='back' style={{ minHeight: '100vh' }}>
       <Content style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div className="body">
-          <h1>Login</h1>
+          <h1 className='h1'>Giriş Yap</h1>
           <Form name="login" /*onFinish={onFinish}*/>
             <Form.Item
               name="username"
               className="form-item"
               rules={[{ required: true, message: 'Please input your username!' }]}
             >
-              <Input placeholder="Username" />
+              <Input placeholder="Kullanıcı adı" />
             </Form.Item>
             <Form.Item
               name="password"
               className="form-item"
               rules={[{ required: true, message: 'Please input your password!' }]}
             >
-              <Input.Password placeholder="Password" />
+              <Input.Password placeholder="Şifre" />
             </Form.Item>
             <Form.Item >
               <Button className="button-container" type="primary" htmlType="submit">
-                Login
+                Giriş yap
               </Button>
             </Form.Item>
           </Form>

@@ -205,7 +205,7 @@ function TeacherDashboard() {
   return (
     <Layout className='Layout' style={{ minHeight: "100vh" }}>
       <Content style={{ padding: "50px" }}>
-        <h1 className="h1">Öğretmen Paneli</h1>
+        <h1 className="h1">Öğretmen Profili</h1>
         <Form className="Form"
           name="addExam"
           // onFinish={addExam}
@@ -221,7 +221,7 @@ function TeacherDashboard() {
             name="duration"
             rules={[{ required: true, message: "Süre gerekli!" }]}
           >
-            <TimePicker format="HH:mm" placeholder="Süre" />
+            <TimePicker format="HH:mm" placeholder="Süre" showNow={false} />
           </Form.Item>
           <Form.Item
             name="numQuestions"

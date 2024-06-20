@@ -36,25 +36,25 @@ const { Header, Content } = Layout;
 //     <Layout style={{ minHeight: '100vh' }}>
 //       <Header>
 //         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-//           <Menu.Item key="1"><Link to="/">Home</Link></Menu.Item>
-//           {!isAuthenticated && <Menu.Item key="2"><Link to="/login">Login</Link></Menu.Item>}
-//           {!isAuthenticated && <Menu.Item key="3"><Link to="/register">Register</Link></Menu.Item>}
-//           {isAuthenticated && <Menu.Item key="4" onClick={handleLogout}>Logout</Menu.Item>}
+//           <Menu.Item key="1"><Link to="/">Anasayfa</Link></Menu.Item>
+//           {!isAuthenticated && <Menu.Item key="2"><Link to="/GirisSayfasi">Giriş yap</Link></Menu.Item>}
+//           {!isAuthenticated && <Menu.Item key="3"><Link to="/KayitSayfasi">Kayıt ol</Link></Menu.Item>}
+//           {isAuthenticated && <Menu.Item key="4" onClick={handleLogout}>Çıkış yap</Menu.Item>}
 //         </Menu>
 //       </Header>
 //       <Content style={{ padding: '0 50px' }}>
 //         <Routes>
 //           <Route path="/" element={<Home />} />
-//           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-//           <Route path="/register" element={<Register onRegister={handleRegister} />} />
+//           <Route path="/GirisSayfasi" element={<Login onLogin={handleLogin} />} />
+//           <Route path="/KayitSayfasi" element={<Register onRegister={handleRegister} />} />
 //           {isAuthenticated ? (
 //             <>
-//               <Route path="/StudentDashboard" element={<StudentDashboard />} />
-//               <Route path="/TeacherDashboard" element={<TeacherDashboard />} />
-//               <Route path="*" element={<Navigate to={userRole === 'teacher' ? "/TeacherDashboard" : "/StudentDashboard"} />} />
+//               <Route path="/OgrenciProfili" element={<StudentDashboard />} />
+//               <Route path="/OgretmenProfili" element={<TeacherDashboard />} />
+//               <Route path="*" element={<Navigate to={userRole === 'teacher' ? "/OgretmenProfili" : "/OgrenciProfili"} />} />
 //             </>
 //           ) : (
-//             <Route path="*" element={<Navigate to="/login" />} />
+//             <Route path="*" element={<Navigate to="/GirisSayfasi" />} />
 //           )}
 //         </Routes>
 //       </Content>
@@ -71,19 +71,19 @@ function App() {
     <Layout style={{ minHeight: '100vh' }}>
       <Header>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1"><Link to="/">Home</Link></Menu.Item>
-          <Menu.Item key="2"><Link to="/login">Login</Link></Menu.Item>
-          <Menu.Item key="3"><Link to="/register">Register</Link></Menu.Item>
+          <Menu.Item key="1"><Link to="/">Anasayfa</Link></Menu.Item>
+          <Menu.Item key="2"><Link to="/GirisSayfasi">Giriş yap</Link></Menu.Item>
+          <Menu.Item key="3"><Link to="/KayitSayfasi">Kayıt ol</Link></Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: '0 50px' }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/StudentDashboard" element={<StudentDashboard />} />
-          <Route path="/TeacherDashboard" element={<TeacherDashboard />} />
-          <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="/GirisSayfasi" element={<Login />} />
+          <Route path="/KayitSayfasi" element={<Register />} />
+          <Route path="/OgrenciProfili" element={<StudentDashboard />} />
+          <Route path="/OgretmenProfili" element={<TeacherDashboard />} />
+          <Route path="*" element={<Navigate to="/GirisSayfasi" />} />
         </Routes>
       </Content>
     </Layout>

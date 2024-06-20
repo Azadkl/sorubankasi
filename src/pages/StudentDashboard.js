@@ -79,7 +79,7 @@ function StudentDashboard() {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Content style={{ padding: '50px' }}>
-        <h1>Öğrenci Paneli</h1>
+        <h1 className='h1'>Öğrenci Profili</h1>
         <List
           bordered
           // dataSource={exams}

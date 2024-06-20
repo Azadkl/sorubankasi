@@ -32,7 +32,7 @@ function Register() {
   //     const result = await response.json();
   
   //     if (response.ok) {
-  //       notification.success({ message: 'Registration successful!' });
+  //       notification.success({ message: 'Kayıt Başarılı!' });
   //       console.log(result);  // Debug: API yanıtını konsola yazdır
   //     } else {
   //       notification.error({ message: 'Registration failed!' });
@@ -49,35 +49,35 @@ function Register() {
     <Layout className='back' style={{ minHeight: '100vh' }}>
       <Content style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div className="body">
-          <h1>Register</h1>
+          <h1 className='h1'>Kayıt ol</h1>
           <Form name="register" /*onFinish={onFinish}*/>
             <Form.Item
               name="username"
               className="form-item"
               rules={[{ required: true, message: 'Please input your username!' }]}
             >
-              <Input placeholder="Username" />
+              <Input placeholder="Kullanıcı adı" />
             </Form.Item>
             <Form.Item
               name="password"
               className="form-item"
               rules={[{ required: true, message: 'Please input your password!' }]}
             >
-              <Input.Password placeholder="Password" />
+              <Input.Password placeholder="Şifre" />
             </Form.Item>
             <Form.Item
               name="role"
               className="form-item"
               rules={[{ required: true, message: 'Please select your role!' }]}
             >
-              <Select placeholder="Select your role">
-                <Option value="student">Student</Option>
-                <Option value="teacher">Teacher</Option>
+              <Select placeholder="Kullanıcı seçiniz">
+                <Option value="student">Öğrenci</Option>
+                <Option value="teacher">Öğretmen</Option>
               </Select>
             </Form.Item>
             <Form.Item>
               <Button className="button-container" type="primary" htmlType="submit">
-                Register
+                Kayıt ol
               </Button>
             </Form.Item>
           </Form>
