@@ -53,7 +53,7 @@
   }
   
   .ListItem {
-    padding: 10px;
+    padding: 0px;
     margin-bottom: 10px;
     background-color: #fafafa; /* Hafif gri ton */
     border-radius: 6px;
@@ -61,16 +61,20 @@
   
   .ListItem div {
     color: #555555; /* Gri renk */
+   
   }
   
   .ListItem strong {
     font-weight: bold;
+    text-align: center;
+    
   }
   
   .ListItem ul {
     list-style-type: none;
     padding-left: 0;
     margin-top: 5px;
+    
   }
   
   .ListItem li {

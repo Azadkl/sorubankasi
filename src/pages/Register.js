@@ -5,44 +5,44 @@ import './Register.css'; // CSS dosyasını import ediyoruz
 const { Content } = Layout;
 const { Option } = Select;
 
-// const SHEETY_POST_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa1';
+const SHEETY_POST_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa1';
 
 function Register() {
-  // const onFinish = async (values) => {
-  //   const { username, password, role } = values;
+  const onFinish = async (values) => {
+    const { username, password, role } = values;
   
-  //   // Veri doğrulaması
-  //   if (!username || !password || !role) {
-  //     notification.error({ message: 'Please fill in all fields!' });
-  //     return;
-  //   }
+    // Veri doğrulaması
+    if (!username || !password || !role) {
+      notification.error({ message: 'Please fill in all fields!' });
+      return;
+    }
   
-  //   // API isteği için gerekli ayarlar
-  //   var myHeaders = new Headers();
-  //   myHeaders.append("Content-Type", "application/json");
-  //   var requestOptions = {
-  //     method: "POST",
-  //     headers: myHeaders,
-  //     redirect: "follow",
-  //     body: JSON.stringify([[username, password, role]])
-  //   };
+    // API isteği için gerekli ayarlar
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      redirect: "follow",
+      body: JSON.stringify([[username, password, role]])
+    };
   
-  //   try {
-  //     const response = await fetch(SHEETY_POST_URL, requestOptions);
-  //     const result = await response.json();
+    try {
+      const response = await fetch(SHEETY_POST_URL, requestOptions);
+      const result = await response.json();
   
-  //     if (response.ok) {
-  //       notification.success({ message: 'Kayıt Başarılı!' });
-  //       console.log(result);  // Debug: API yanıtını konsola yazdır
-  //     } else {
-  //       notification.error({ message: 'Registration failed!' });
-  //       console.error('Registration failed:', result);  // Debug: Hata durumunda konsola yazdır
-  //     }
-  //   } catch (error) {
-  //     console.error('Registration error:', error);
-  //     notification.error({ message: `Registration failed: ${error.message}` });
-  //   }
-  // };
+      if (response.ok) {
+        notification.success({ message: 'Kayıt Başarılı!' });
+        console.log(result);  // Debug: API yanıtını konsola yazdır
+      } else {
+        notification.error({ message: 'Registration failed!' });
+        console.error('Registration failed:', result);  // Debug: Hata durumunda konsola yazdır
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      notification.error({ message: `Registration failed: ${error.message}` });
+    }
+  };
   
 
   return (
@@ -50,7 +50,7 @@ function Register() {
       <Content style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div className="body">
           <h1 className='h1'>Kayıt ol</h1>
-          <Form name="register" /*onFinish={onFinish}*/>
+          <Form name="register" onFinish={onFinish}>
             <Form.Item
               name="username"
               className="form-item"

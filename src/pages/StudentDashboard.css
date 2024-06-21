@@ -19,4 +19,9 @@
   .h1{
     color: #ffffff;
   }
-  
+  .ListItem {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fafafa; /* Hafif gri ton */
+    border-radius: 6px;
+  }
