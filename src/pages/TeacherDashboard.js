@@ -205,12 +205,13 @@ function TeacherDashboard() {
   return (
     <Layout className='Layout' style={{ minHeight: "100vh" }}>
       <Content style={{ padding: "50px" }}>
-        <h1 className="h1">Öğretmen Profili</h1>
+        
         <Form className="Form"
           name="addExam"
           // onFinish={addExam}
           style={{ marginBottom: "20px" }}
         >
+          <h1 className="h1">Öğretmen Profili</h1>
           <Form.Item
             name="code"
             rules={[{ required: true, message: "Sınav kodu gerekli!" }]}

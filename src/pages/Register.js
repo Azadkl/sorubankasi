@@ -54,21 +54,21 @@ function Register() {
             <Form.Item
               name="username"
               className="form-item"
-              rules={[{ required: true, message: 'Please input your username!' }]}
+              rules={[{ required: true, message: 'Lütfen kullanıcı adını giriniz!' }]}
             >
               <Input placeholder="Kullanıcı adı" />
             </Form.Item>
             <Form.Item
               name="password"
               className="form-item"
-              rules={[{ required: true, message: 'Please input your password!' }]}
+              rules={[{ required: true, message: 'Lütfen şifreyi giriniz!' }]}
             >
               <Input.Password placeholder="Şifre" />
             </Form.Item>
             <Form.Item
               name="role"
               className="form-item"
-              rules={[{ required: true, message: 'Please select your role!' }]}
+              rules={[{ required: true, message: 'Kullanıcı türünü seçiniz!' }]}
             >
               <Select placeholder="Kullanıcı seçiniz">
                 <Option value="student">Öğrenci</Option>

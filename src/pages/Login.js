@@ -55,14 +55,14 @@ function Login({ onLogin }) {
             <Form.Item
               name="username"
               className="form-item"
-              rules={[{ required: true, message: 'Please input your username!' }]}
+              rules={[{ required: true, message: 'Lütfen kullanıcı adınızı giriniz!' }]}
             >
               <Input placeholder="Kullanıcı adı" />
             </Form.Item>
             <Form.Item
               name="password"
               className="form-item"
-              rules={[{ required: true, message: 'Please input your password!' }]}
+              rules={[{ required: true, message: 'Lütfen şifrenizi giriniz!' }]}
             >
               <Input.Password placeholder="Şifre" />
             </Form.Item>

@@ -1,20 +1,19 @@
 .layout {
-  background-color: #040912; /* Koyu mavi tonu */
+  background-image: url(/src/assets/8sqkca4mtvl21.jpg);
 }
 
 .site-layout-content {
-  background: #03121f; /* Koyu mavi tonu */
   padding: 110px;
   min-height: 28px;
   margin: 24px ;
   text-align: center;
   animation: fadeIn 1s ease; /* Sayfa yüklendiğinde fadeIn animasyonu */
   position: relative;
-  background:transparent;
   border: 2px solid rgba(255, 255, 255, .5);
   border-radius: 20px;
-  backdrop-filter: blur(20px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: aliceblue;
+  background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg);
 }
 
 .title {

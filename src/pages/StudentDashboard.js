@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, List, notification, Button } from 'antd';
+import './StudentDashboard.css';
 
 const { Content } = Layout;
 
@@ -58,7 +59,7 @@ function StudentDashboard() {
   //         const isCorrect = getRandomBoolean();
   //         return {
   //           question: question.text,
-  //           result: isCorrect ? 'Correct' : 'Incorrect',
+  //           result: isCorrect ? 'Doğru' : 'Yanlış',
   //           score: isCorrect ? parseInt(question.points, 10) : 0
   //         };
   //       });
@@ -77,10 +78,10 @@ function StudentDashboard() {
   // };
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout className='Layout' style={{ minHeight: '100vh' }}>
       <Content style={{ padding: '50px' }}>
         <h1 className='h1'>Öğrenci Profili</h1>
-        <List
+        <List className='List'
           bordered
           // dataSource={exams}
           renderItem={item => {

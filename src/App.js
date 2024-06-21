@@ -70,13 +70,13 @@ function App() {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Header>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+        <Menu theme="white" mode="horizontal" defaultSelectedKeys={['1']}>
           <Menu.Item key="1"><Link to="/">Anasayfa</Link></Menu.Item>
           <Menu.Item key="2"><Link to="/GirisSayfasi">Giriş yap</Link></Menu.Item>
           <Menu.Item key="3"><Link to="/KayitSayfasi">Kayıt ol</Link></Menu.Item>
         </Menu>
       </Header>
-      <Content style={{ padding: '0 50px' }}>
+      <Content >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/GirisSayfasi" element={<Login />} />

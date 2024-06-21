@@ -1,15 +1,18 @@
 /* Register.css */
-
+.back{
+  background-image: url(/src/assets/8sqkca4mtvl21.jpg);
+}
 .body {
 
     position: relative;
-    background:transparent;
+    /* background:transparent; */
     width: 400px;
     height: 440px;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
-    backdrop-filter: blur(20px);
+    /* backdrop-filter: blur(20px); */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg);
   }
 
   
