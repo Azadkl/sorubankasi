@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Layout, notification } from 'antd';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import './Login.css'; // CSS dosyasını import ediyoruz
+import React, { useState, useEffect } from "react";
+import { Form, Input, Button, Layout, notification } from "antd";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./Login.css"; // CSS dosyasını import ediyoruz
 
 const { Content } = Layout;
 
-const SHEETY_GET_URL = 'https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa1';
+const SHEETY_GET_URL =
+  "https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa1";
 
-function Login({ onLogin }) {
+function Login({ onLogin , setCurrentUser}) {
   const [users, setUsers] = useState([]);
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,54 +22,74 @@ function Login({ onLogin }) {
     try {
       const response = await axios.get(SHEETY_GET_URL, {
         headers: {
-          'Content-Type': 'application/json'
-        }
+          "Content-Type": "application/json",
+        },
       });
       setUsers(response.data.data);
     } catch (error) {
-      console.error('Error fetching users:', error);
-      notification.error({ message: 'Error fetching users' });
+      console.error("Error fetching users:", error);
+      notification.error({ message: "Error fetching users" });
     }
   };
 
   const onFinish = (values) => {
-    const user = users.find(user => user.username === values.username && user.password === values.password);
+    const user = users.find(
+      (user) =>
+        user.username === values.username && user.password === values.password
+    );
 
     if (user) {
-      notification.success({ message: 'Giriş Yapıldı' });
+      notification.success({ message: "Giriş Yapıldı" });
       onLogin(user.username, user.password);
-      if (user.role === 'teacher') {
-        navigate('/TeacherDashboard');
+      if (user.role === "teacher") {
+        navigate("/TeacherDashboard");
       } else {
-        navigate('/StudentDashboard');
+        navigate("/StudentDashboard");
       }
     } else {
-      notification.error({ message: 'Kullanıcı adı veya parola yanlış' });
+      notification.error({ message: "Kullanıcı adı veya parola yanlış" });
     }
+
+    setCurrentUser(user);
   };
 
   return (
-    <Layout className='back' style={{ minHeight: '100vh' }}>
-      <Content style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Layout className="back" style={{ minHeight: "100vh" }}>
+      <Content
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="body">
           <h1>Giriş Yap</h1>
           <Form name="login" onFinish={onFinish}>
             <Form.Item
               name="username"
               className="form-item"
-              rules={[{ required: true, message: 'Lütfen kullanıcı adınızı giriniz!' }]}
+              rules={[
+                {
+                  required: true,
+                  message: "Lütfen kullanıcı adınızı giriniz!",
+                },
+              ]}
             >
               <Input placeholder="Kullanıcı adı" />
             </Form.Item>
             <Form.Item
               name="password"
               className="form-item"
-              rules={[{ required: true, message: 'Lütfen şifrenizi giriniz!' }]}
+              rules={[{ required: true, message: "Lütfen şifrenizi giriniz!" }]}
             >
               <Input.Password placeholder="Şifre" />
             </Form.Item>
-            <Form.Item >
-              <Button className="button-container" type="primary" htmlType="submit">
+            <Form.Item>
+              <Button
+                className="button-container"
+                type="primary"
+                htmlType="submit"
+              >
                 Giriş yap
               </Button>
             </Form.Item>

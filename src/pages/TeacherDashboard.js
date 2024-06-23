@@ -23,7 +23,7 @@ const QUESTIONS_SHEETY_URL =
 const EXAMS_SHEETY_URL =
   "https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa3";
 
-function TeacherDashboard() {
+function TeacherDashboard( {currentUser}) {
   const [questions, setQuestions] = useState([]);
   const [exams, setExams] = useState([]);
   const [loadingQuestion, setLoadingQuestion] = useState(false);
@@ -33,6 +33,7 @@ function TeacherDashboard() {
   const [isQuestionModalVisible, setIsQuestionModalVisible] = useState(false);
   const [currentExam, setCurrentExam] = useState(null);
   const [currentQuestions, setCurrentQuestions] = useState([]);
+ 
 
   useEffect(() => {
     fetchQuestions();
@@ -228,6 +229,8 @@ function TeacherDashboard() {
     return fields;
   };
 
+
+
   return (
     <Layout className="Layout" style={{ minHeight: "100vh" }}>
       <Content style={{ padding: "50px" }}>
@@ -236,7 +239,8 @@ function TeacherDashboard() {
           onFinish={addExam}
           style={{ marginBottom: "20px" }}
         >
-          <h1 >Öğretmen Profili</h1>
+         
+         <h1>Öğretmen Profili</h1>
           <Form.Item
             name="code"
             rules={[{ required: true, message: "Sınav kodu gerekli!" }]}
