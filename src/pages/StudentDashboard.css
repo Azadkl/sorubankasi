@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-image: url(/src/assets/8sqkca4mtvl21.jpg);
+    /* background-image: url(/src/assets/8sqkca4mtvl21.jpg); */
   }
     .List {
     width: 100%;
@@ -14,7 +14,7 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
     margin-bottom: 20px;
-    background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg);
+    /* background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg); */
   }
   .h1{
     color: #ffffff;

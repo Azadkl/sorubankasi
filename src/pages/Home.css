@@ -1,6 +1,6 @@
-.layout {
+/* .layout {
   background-image: url(/src/assets/8sqkca4mtvl21.jpg);
-}
+} */
 
 .site-layout-content {
   padding: 110px;
@@ -13,7 +13,7 @@
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: aliceblue;
-  background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg);
+  /* background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg); */
 }
 
 .title {

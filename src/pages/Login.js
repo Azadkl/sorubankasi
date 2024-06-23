@@ -6,7 +6,7 @@ import './Login.css'; // CSS dosyasını import ediyoruz
 
 const { Content } = Layout;
 
-const SHEETY_GET_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa1';
+const SHEETY_GET_URL = 'https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa1';
 
 function Login({ onLogin }) {
   const [users, setUsers] = useState([]);
@@ -50,7 +50,7 @@ function Login({ onLogin }) {
     <Layout className='back' style={{ minHeight: '100vh' }}>
       <Content style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div className="body">
-          <h1 className='h1'>Giriş Yap</h1>
+          <h1>Giriş Yap</h1>
           <Form name="login" onFinish={onFinish}>
             <Form.Item
               name="username"

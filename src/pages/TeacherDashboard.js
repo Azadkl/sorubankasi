@@ -8,6 +8,7 @@ import {
   notification,
   InputNumber,
   TimePicker,
+  Modal,
 } from "antd";
 import moment from "moment";
 import 'moment/locale/tr';
@@ -18,9 +19,9 @@ moment.locale('tr');
 const { Content } = Layout;
 
 const QUESTIONS_SHEETY_URL =
-  "https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa2";
+  "https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa2";
 const EXAMS_SHEETY_URL =
-  "https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa3";
+  "https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa3";
 
 function TeacherDashboard() {
   const [questions, setQuestions] = useState([]);
@@ -28,6 +29,10 @@ function TeacherDashboard() {
   const [loadingQuestion, setLoadingQuestion] = useState(false);
   const [loadingExam, setLoadingExam] = useState(false);
   const [numQuestions, setNumQuestions] = useState(1);
+  const [isExamModalVisible, setIsExamModalVisible] = useState(false);
+  const [isQuestionModalVisible, setIsQuestionModalVisible] = useState(false);
+  const [currentExam, setCurrentExam] = useState(null);
+  const [currentQuestions, setCurrentQuestions] = useState([]);
 
   useEffect(() => {
     fetchQuestions();
@@ -142,6 +147,27 @@ function TeacherDashboard() {
     }
   };
 
+  const handleExamModalOpen = (exam) => {
+    setCurrentExam(exam);
+    setIsExamModalVisible(true);
+  };
+
+  const handleQuestionModalOpen = (examCode) => {
+    const filteredQuestions = questions.filter(q => q.examCode === examCode);
+    setCurrentQuestions(filteredQuestions);
+    setIsQuestionModalVisible(true);
+  };
+
+  const handleExamModalClose = () => {
+    setIsExamModalVisible(false);
+    setCurrentExam(null);
+  };
+
+  const handleQuestionModalClose = () => {
+    setIsQuestionModalVisible(false);
+    setCurrentQuestions([]);
+  };
+
   const generateQuestionFields = () => {
     const fields = [];
     for (let i = 0; i < numQuestions; i++) {
@@ -203,15 +229,14 @@ function TeacherDashboard() {
   };
 
   return (
-    <Layout className='Layout' style={{ minHeight: "100vh" }}>
+    <Layout className="Layout" style={{ minHeight: "100vh" }}>
       <Content style={{ padding: "50px" }}>
-        
         <Form className="Form"
           name="addExam"
           onFinish={addExam}
           style={{ marginBottom: "20px" }}
         >
-          <h1 className="h1">Öğretmen Profili</h1>
+          <h1 >Öğretmen Profili</h1>
           <Form.Item
             name="code"
             rules={[{ required: true, message: "Sınav kodu gerekli!" }]}
@@ -241,22 +266,79 @@ function TeacherDashboard() {
             </Button>
           </Form.Item>
         </Form>
-        <List className="List"
-          bordered
-          dataSource={exams}
-          renderItem={(item) => (
-            <List.Item className="ListItem">
-              <div className="ListItem div">
-                <strong className="ListItem strong">Sınav Kodu: </strong>
-                {item.code}
-                <p>
-                  <strong className="ListItem strong">Süre: </strong>
-                  {item.duration}
-                </p>
-              </div>
-            </List.Item>
-          )}
-        />
+
+        <Button className="Button"
+          type="primary"
+          onClick={() => handleExamModalOpen(currentExam)}
+          style={{ marginBottom: "20px" }}
+        >
+          Sınavları Görüntüle
+        </Button>
+
+        <Modal
+          title="Sınavlar"
+          visible={isExamModalVisible}
+          onCancel={handleExamModalClose}
+          footer={[
+            <Button className="Button" key="close" onClick={handleExamModalClose}>
+              Kapat
+            </Button>
+          ]}
+        >
+          <List
+            bordered
+            dataSource={exams}
+            renderItem={(item) => (
+              <List.Item >
+                <div>
+                  <strong>Sınav Kodu: </strong>{item.code}
+                  <p><strong>Süre: </strong>{item.duration}</p>
+                  <Button
+                  className="Button"
+                    type="link"
+                    onClick={() => handleQuestionModalOpen(item.code)}
+                  >
+                    Soruları Görüntüle
+                  </Button>
+                </div>
+              </List.Item>
+            )}
+          />
+        </Modal>
+
+        <Modal
+          title="Sorular"
+          visible={isQuestionModalVisible}
+          onCancel={handleQuestionModalClose}
+          footer={[
+            <Button className="Button" key="close" onClick={handleQuestionModalClose}>
+              Kapat
+            </Button>
+          ]}
+        >
+          <List
+          
+            bordered
+            dataSource={currentQuestions}
+            renderItem={(item) => (
+              <List.Item >
+                <div>
+                  <strong>Soru: </strong>{item.text}
+                  <ul>
+                    <li>A. {item.choiceA}</li>
+                    <li>B. {item.choiceB}</li>
+                    <li>C. {item.choiceC}</li>
+                    <li>D. {item.choiceD}</li>
+                  </ul>
+                  <p><strong>Doğru Cevap: </strong>{item.correctAnswer}</p>
+                  <p><strong>Sınav Kodu: </strong>{item.examCode}</p>
+                  <p><strong>Puan: </strong>{item.points}</p>
+                </div>
+              </List.Item>
+            )}
+          />
+        </Modal>
+
         <Form className="Form"
           name="addQuestion"
           onFinish={addQuestion}
@@ -270,36 +352,6 @@ function TeacherDashboard() {
             </Button>
           </Form.Item>
         </Form>
-        <List className="List"
-          bordered
-           dataSource={questions}
-          renderItem={(item) => (
-            <List.Item className="ListItem">
-              <div className="ListItem div"> 
-                <strong className="ListItem strong">Soru: </strong>
-                {item.text}
-                <ul className="ListItem ul">
-                  <li className="ListItem li">A. {item.choiceA}</li>
-                  <li className="ListItem li">B. {item.choiceB}</li>
-                  <li className="ListItem li">C. {item.choiceC}</li>
-                  <li className="ListItem li">D. {item.choiceD}</li>
-                </ul>
-                <p>
-                  <strong className="ListItem strong">Doğru Cevap: </strong>
-                  {item.correctAnswer}
-                </p>
-                <p>
-                  <strong className="ListItem strong">Sınav Kodu: </strong>
-                  {item.examCode}
-                </p>
-                <p>
-                  <strong className="ListItem strong">Puan: </strong>
-                  {item.points}
-                </p>
-              </div>
-            </List.Item>
-          )}
-        />
       </Content>
     </Layout>
   );

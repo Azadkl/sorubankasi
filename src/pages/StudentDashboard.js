@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, List, notification, Button } from 'antd';
+import { Layout, List, notification, Button, Modal } from 'antd';
 import './StudentDashboard.css';
 
 const { Content } = Layout;
 
-const EXAMS_SHEETY_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa3';
-const QUESTIONS_SHEETY_URL = 'https://v1.nocodeapi.com/azad4721/google_sheets/NMiyRCxxVSwkcoWm?tabId=Sayfa2';
+const EXAMS_SHEETY_URL = 'https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa3';
+const QUESTIONS_SHEETY_URL = 'https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa2';
 
 function getRandomBoolean() {
   return Math.random() >= 0.5;
@@ -17,6 +17,7 @@ function StudentDashboard() {
   const [results, setResults] = useState([]);
   const [currentExam, setCurrentExam] = useState(null);
   const [totalScore, setTotalScore] = useState(0);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
     fetchExams();
@@ -31,7 +32,7 @@ function StudentDashboard() {
       if (result.data && Array.isArray(result.data)) {
         setExams(result.data);
       } else {
-        throw new Error('Invalid exams data format');
+        throw new Error('Geçersiz sınav verisi formatı');
       }
     } catch (error) {
       console.error(error);
@@ -42,7 +43,7 @@ function StudentDashboard() {
   const fetchQuestions = async (examCode) => {
     try {
       const url = `${QUESTIONS_SHEETY_URL}&filterByFormula=${encodeURIComponent(`examCode="${examCode}"`)}`;
-      console.log(`Fetching questions for exam code: ${examCode}`); // Debugging için sınav kodunu yazdır
+      console.log(`Sınav kodu için sorular getiriliyor: ${examCode}`); // Debugging için sınav kodunu yazdır
       const response = await fetch(url);
       const result = await response.json();
       console.log('Questions:', result.data); // Debugging için soruları yazdır
@@ -68,13 +69,24 @@ function StudentDashboard() {
         // Toplam puanı hesaplama
         const totalScore = generatedResults.reduce((sum, result) => sum + result.score, 0);
         setTotalScore(totalScore);
+
+        // Modal'ı göster
+        setIsModalVisible(true);
       } else {
-        throw new Error('Invalid questions data format');
+        throw new Error('Geçersiz soru verisi formatı');
       }
     } catch (error) {
       console.error(error);
       notification.error({ message: 'Sorular yüklenemedi' });
     }
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+    setQuestions([]);
+    setResults([]);
+    setTotalScore(0);
+    setCurrentExam(null);
   };
 
   return (
@@ -87,7 +99,7 @@ function StudentDashboard() {
           renderItem={item => {
             const code = item.code;
             if (!code) {
-              console.error('Invalid exam item:', item);
+              console.error('Geçersiz sınav öğesi:', item);
               return null;
             }
             return (
@@ -100,31 +112,37 @@ function StudentDashboard() {
             );
           }}
         />
-        {currentExam && questions.length > 0 && (
-          <div>
-            <h2 className='h1'>Sınav: {currentExam}</h2>
-            <List className='List'
-              bordered
-              dataSource={results}
-              renderItem={item => (
-                <List.Item className='ListItem'>
-                  <div>
-                    <p><strong>Soru:</strong> {item.question}</p>
-                    <p><strong>Sonuç:</strong> {item.result}</p>
-                    <p><strong>Puan:</strong> {item.score}</p>
-                  </div>
-                </List.Item>
-              )}
-            />
-            <h3 className='h1'>Toplam Puan: {totalScore}</h3>
-          </div>
-        )}
-        {currentExam && questions.length === 0 && (
-          <div>
-            <h2>Sınav: {currentExam}</h2>
+        <Modal
+          title={`Sınav: ${currentExam}`}
+          visible={isModalVisible}
+          onCancel={handleCancel}
+          footer={[
+            <Button key="close" onClick={handleCancel}>
+              Kapat
+            </Button>
+          ]}
+        >
+          {questions.length > 0 ? (
+            <div>
+              <List
+                bordered
+                dataSource={results}
+                renderItem={item => (
+                  <List.Item className='ListItem'>
+                    <div>
+                      <p><strong>Soru:</strong> {item.question}</p>
+                      <p><strong>Sonuç:</strong> {item.result}</p>
+                      <p><strong>Puan:</strong> {item.score}</p>
+                    </div>
+                  </List.Item>
+                )}
+              />
+              <h3>Toplam Puan: {totalScore}</h3>
+            </div>
+          ) : (
             <p>Bu sınav için henüz soru eklenmemiş.</p>
-          </div>
-        )}
+          )}
+        </Modal>
       </Content>
     </Layout>
   );
