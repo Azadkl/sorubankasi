@@ -47,8 +47,8 @@ function App() {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Header>
-        <Menu theme="white" mode="horizontal" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">
+        <Menu theme="white" style={{color:"white"}} mode="horizontal" defaultSelectedKeys={["1"]}>
+          <Menu.Item style={{color:"white"}} key="1">
             <Link to="/">Anasayfa</Link>
           </Menu.Item>
           {!isAuthenticated && (
@@ -67,7 +67,7 @@ function App() {
                 Çıkış yap
               </Menu.Item>
               <Menu.Item>
-                <Menu.Item onClick={showProfile} type="text">
+                <Menu.Item  onClick={showProfile}>
                   Profil
                 </Menu.Item>
                 <Modal
@@ -87,7 +87,7 @@ function App() {
                   <br />
                   <span>
                     <strong>Rol: </strong>
-                    {currentUser.role}
+                    {currentUser.role === 'teacher' ? "Öğretmen": "öğrenci"}
                   </span>
                   <br />
                 </Modal>

@@ -46,7 +46,7 @@ function Register() {
   
 
   return (
-    <Layout className='back' style={{ minHeight: '100vh' }}>
+    <Layout className='Layout' style={{ minHeight: '100vh' }}>
       <Content style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div className="body">
           <h1>Kayıt ol</h1>

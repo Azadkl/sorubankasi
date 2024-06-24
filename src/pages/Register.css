@@ -8,6 +8,7 @@
     border-radius: 20px;
     /* backdrop-filter: blur(20px); */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   
 
   }
 
@@ -36,6 +37,9 @@
     background-color: black;
     margin: auto;
   
+  }
+  .Layout{
+    background-color: #F3FF90
   }
   
 
