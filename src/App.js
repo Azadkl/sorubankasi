@@ -51,24 +51,24 @@ function App() {
         <Menu className="custom-menu" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item style={{color:"white"}} key="1">
             <Link to="/">Anasayfa</Link>
-          </Menu.Item>
+          </Menu.Item >
           {!isAuthenticated && (
-            <Menu.Item key="2">
+            <Menu.Item style={{color:"white"}} key="2">
               <Link to="/login">Giriş yap</Link>
             </Menu.Item>
           )}
           {!isAuthenticated && (
-            <Menu.Item key="3">
+            <Menu.Item style={{color:"white"}} key="3">
               <Link to="/register">Kayıt ol</Link>
             </Menu.Item>
           )}
           {isAuthenticated && (
             <>
-              <Menu.Item key="4" onClick={handleLogout}>
+              <Menu.Item style={{color:"white"}} key="4" onClick={handleLogout}>
                 Çıkış yap
               </Menu.Item>
               <Menu.Item>
-                <Menu.Item  onClick={showProfile}>
+                <Menu.Item style={{color:"white"}} onClick={showProfile}>
                   Profil
                 </Menu.Item>
                 <Modal
@@ -88,7 +88,7 @@ function App() {
                   <br />
                   <span>
                     <strong>Rol: </strong>
-                    {currentUser.role === 'teacher' ? "Öğretmen": "öğrenci"}
+                    {currentUser.role === 'teacher' ? "Öğretmen": "Öğrenci"}
                   </span>
                   <br />
                 </Modal>

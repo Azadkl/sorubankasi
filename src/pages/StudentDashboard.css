@@ -9,17 +9,18 @@
     .List-student {
     width: 100%;
     max-width: 600px;
-    background-color: #616a62;
+    background-color: #5D4037;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     margin-bottom: 20px;
+    border-color: #5D4037;
    
   }
 
   .ListItem-student {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #ffffff; 
+    background-color: #8D6E63; 
     border-radius: 6px;
   }
