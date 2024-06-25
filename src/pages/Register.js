@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Select, Layout, notification } from 'antd';
-import './Register.css'; // CSS dosyasını import ediyoruz
+import './Register.css'; 
 
 const { Content } = Layout;
 const { Option } = Select;
@@ -11,13 +11,11 @@ function Register() {
   const onFinish = async (values) => {
     const { username, password, role } = values;
   
-    // Veri doğrulaması
+    
     if (!username || !password || !role) {
-      notification.error({ message: 'Please fill in all fields!' });
+      notification.error({ message: 'Lütfen boş yerleri doldurunuz!' });
       return;
     }
-  
-    // API isteği için gerekli ayarlar
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
@@ -33,10 +31,10 @@ function Register() {
   
       if (response.ok) {
         notification.success({ message: 'Kayıt Başarılı!' });
-        console.log(result);  // Debug: API yanıtını konsola yazdır
+        console.log(result);  
       } else {
-        notification.error({ message: 'Registration failed!' });
-        console.error('Registration failed:', result);  // Debug: Hata durumunda konsola yazdır
+        notification.error({ message: 'Kayıt Başarısız!' });
+        console.error('Registration failed:', result);  
       }
     } catch (error) {
       console.error('Registration error:', error);

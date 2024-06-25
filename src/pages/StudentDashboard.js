@@ -21,7 +21,6 @@ function StudentDashboard({ currentUser }) {
   const [totalScore, setTotalScore] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-
   useEffect(() => {
     fetchExams();
   }, []);
@@ -30,7 +29,7 @@ function StudentDashboard({ currentUser }) {
     try {
       const response = await fetch(EXAMS_SHEETY_URL);
       const result = await response.json();
-      console.log("Exams:", result.data); // Debugging için sınavları yazdır
+      console.log("Exams:", result.data);
 
       if (result.data && Array.isArray(result.data)) {
         setExams(result.data);
@@ -48,12 +47,11 @@ function StudentDashboard({ currentUser }) {
       const url = `${QUESTIONS_SHEETY_URL}&filterByFormula=${encodeURIComponent(
         `examCode="${examCode}"`
       )}`;
-      console.log(`Sınav kodu için sorular getiriliyor: ${examCode}`); // Debugging için sınav kodunu yazdır
+      console.log(`Sınav kodu için sorular getiriliyor: ${examCode}`);
       const response = await fetch(url);
       const result = await response.json();
-      console.log("Questions:", result.data); // Debugging için soruları yazdır
+      console.log("Questions:", result.data);
 
-      // Soruları sınav koduna göre filtrele
       const filteredQuestions = result.data.filter(
         (question) => question.examCode === examCode
       );
@@ -62,7 +60,6 @@ function StudentDashboard({ currentUser }) {
         setQuestions(filteredQuestions);
         setCurrentExam(examCode);
 
-        // Öğrencinin soruları çözüp sonuçları doldurması ve puan hesaplama
         const generatedResults = filteredQuestions.map((question) => {
           const isCorrect = getRandomBoolean();
           return {
@@ -73,14 +70,12 @@ function StudentDashboard({ currentUser }) {
         });
         setResults(generatedResults);
 
-        // Toplam puanı hesaplama
         const totalScore = generatedResults.reduce(
           (sum, result) => sum + result.score,
           0
         );
         setTotalScore(totalScore);
 
-        // Modal'ı göster
         setIsModalVisible(true);
       } else {
         throw new Error("Geçersiz soru verisi formatı");
@@ -99,11 +94,10 @@ function StudentDashboard({ currentUser }) {
     setCurrentExam(null);
   };
 
-
   return (
     <Layout className="Layout" style={{ minHeight: "100vh" }}>
       <Content style={{ padding: "50px" }}>
-      <h1>Öğrenci Profili</h1>
+        <h1>Öğrenci Profili</h1>
         <List
           className="List-student"
           bordered

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Layout, notification } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"; // CSS dosyasını import ediyoruz
+import "./Login.css"; 
 
 const { Content } = Layout;
 

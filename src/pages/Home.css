@@ -7,7 +7,7 @@
   min-height: 28px;
   margin: 2px ;
   text-align: center;
-  animation: fadeIn 1s ease; /* Sayfa yüklendiğinde fadeIn animasyonu */
+  animation: fadeIn 1s ease; 
   position: relative;
   /* border: 2px solid rgba(255, 255, 255, .5); */
   border-radius: 20px;
@@ -20,9 +20,9 @@
 
 .title {
   font-size: 36px;
-  color: #ffffff; /* Parlak mavi tonu */
+  color: #ffffff; 
   margin-bottom: 16px;
-  text-align: center; /* Başlık ile açıklama arasındaki boşluğu azalttım */
+  text-align: center;
 }
 
 

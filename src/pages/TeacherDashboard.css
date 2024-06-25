@@ -7,47 +7,45 @@
     background-color: #8D6E63;
   }
   
-  /* Başlık */
+
   h1 {
-    color: #ffffff; /* Mavi renk */
+    color: #ffffff; 
     text-align: center;
     margin-bottom: 20px;
     font-weight: bold;
   }
   
-  /* Formlar */
+
   .Form {
     width: 100%;
     max-width: 600px;
-    background-color: #5D4037; /* Beyaz arka plan */
+    background-color: #5D4037; 
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     margin-bottom: 20px;
     backdrop-filter: blur(20px);
   }
- 
-  /* Inputlar */
+
   .Input,
   .TimePicker,
   .InputNumber {
     width: 100%;
   }
-  
-  /* Butonlar */
+
   .Button {
     width: 100%;
     background-color: black;
   }
   
-  /* Liste (sınavlar ve sorular için) */
+
   .List {
     width: 100%;
     max-width: 600px;
-    background-color: #ffffff; /* Beyaz arka plan */
+    background-color: #ffffff; 
     padding: 200px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     margin-bottom: 20px;
     /* background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg); */
   }
@@ -55,12 +53,12 @@
   .ListItem {
     padding: 100px;
     margin-bottom: 10px;
-    background-color: #fafafa; /* Hafif gri ton */
+    background-color: #fafafa; 
     border-radius: 6px;
   }
   
   .ListItem div {
-    color: #555555; /* Gri renk */
+    color: #555555; 
    
   }
   
@@ -81,7 +79,7 @@
     margin-bottom: 5px;
   }
   
-  /* Responsiveness */
+
   @media (max-width: 768px) {
     .Form,
     .List {

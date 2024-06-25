@@ -9,10 +9,10 @@
     .List-student {
     width: 100%;
     max-width: 600px;
-    background-color: #616a62; /* Beyaz arka plan */
+    background-color: #616a62;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     margin-bottom: 20px;
    
   }
@@ -20,6 +20,6 @@
   .ListItem-student {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #ffffff; /* Hafif gri ton */
+    background-color: #ffffff; 
     border-radius: 6px;
   }
