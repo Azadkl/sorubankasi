@@ -14,14 +14,15 @@ import moment from "moment";
 import 'moment/locale/tr';
 import "./TeacherDashboard.css"
 
+
 moment.locale('tr');
 
 const { Content } = Layout;
 
 const QUESTIONS_SHEETY_URL =
-  "https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa2";
+  "https://v1.nocodeapi.com/azad321/google_sheets/TPiGGQOkKnlSrxnT?tabId=Sayfa2";
 const EXAMS_SHEETY_URL =
-  "https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa3";
+  "https://v1.nocodeapi.com/azad321/google_sheets/TPiGGQOkKnlSrxnT?tabId=Sayfa3";
 
 function TeacherDashboard( {currentUser}) {
   const [questions, setQuestions] = useState([]);
@@ -174,7 +175,7 @@ function TeacherDashboard( {currentUser}) {
     for (let i = 0; i < numQuestions; i++) {
       fields.push(
         <div key={i}>
-          <h3>Soru {i + 1}</h3>
+          <h3 style={{color:"white"}}>Soru {i + 1}</h3>
           <Form.Item
             name={`examCode${i}`}
             rules={[{ required: true, message: "Sınav kodu gerekli!" }]}
@@ -240,7 +241,7 @@ function TeacherDashboard( {currentUser}) {
           style={{ marginBottom: "20px" }}
         >
          
-         <h1>Öğretmen Profili</h1>
+         <h1 >Öğretmen Profili</h1>
           <Form.Item
             name="code"
             rules={[{ required: true, message: "Sınav kodu gerekli!" }]}
@@ -253,9 +254,9 @@ function TeacherDashboard( {currentUser}) {
           >
             <TimePicker format="HH:mm" placeholder="Süre" showNow={false} />
           </Form.Item>
-          <Form.Item
+          <Form.Item 
             name="numQuestions"
-            label="Kaç soru ekleyeceksiniz?"
+            label={<span style={{ color: 'white' }}>Eklemek istediğiniz soru sayısı</span>}
             rules={[{ required: true, message: "Soru sayısı gerekli!" }]}
           >
             <InputNumber
@@ -284,7 +285,7 @@ function TeacherDashboard( {currentUser}) {
           visible={isExamModalVisible}
           onCancel={handleExamModalClose}
           footer={[
-            <Button className="Button" key="close" onClick={handleExamModalClose}>
+            <Button  key="close" onClick={handleExamModalClose}>
               Kapat
             </Button>
           ]}
@@ -315,7 +316,7 @@ function TeacherDashboard( {currentUser}) {
           visible={isQuestionModalVisible}
           onCancel={handleQuestionModalClose}
           footer={[
-            <Button className="Button" key="close" onClick={handleQuestionModalClose}>
+            <Button  key="close" onClick={handleQuestionModalClose}>
               Kapat
             </Button>
           ]}

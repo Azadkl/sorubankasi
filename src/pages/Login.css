@@ -1,18 +1,15 @@
 .body {
-  background-color: #FDFFE2; /* Açık gri tonu */
+  background-color: #5D4037; /* Açık gri tonu */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(221, 216, 216, 0.1);
-  animation: fadeIn 1s ease; /* Sayfa yüklendiğinde fadeIn animasyonu */
+    
+}
+.Layout-back{
+  background-color: #8D6E63 ;
 }
 
 
-.h1 {
-  font-size: 24px;
-  color: #000000; /* Parlak mavi tonu */
-  text-align: center;
-  margin-bottom: 24px;
-}
 
 .form {
   width: 1000%;

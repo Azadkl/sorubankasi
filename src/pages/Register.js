@@ -5,7 +5,7 @@ import './Register.css'; // CSS dosyasını import ediyoruz
 const { Content } = Layout;
 const { Option } = Select;
 
-const SHEETY_POST_URL = 'https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa1';
+const SHEETY_POST_URL = 'https://v1.nocodeapi.com/azad321/google_sheets/TPiGGQOkKnlSrxnT?tabId=Sayfa1';
 
 function Register() {
   const onFinish = async (values) => {
@@ -46,7 +46,7 @@ function Register() {
   
 
   return (
-    <Layout className='Layout' style={{ minHeight: '100vh' }}>
+    <Layout className='Layout-register' style={{ minHeight: '100vh' }}>
       <Content style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div className="body">
           <h1>Kayıt ol</h1>

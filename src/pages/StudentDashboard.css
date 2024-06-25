@@ -4,24 +4,22 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    /* background-image: url(/src/assets/8sqkca4mtvl21.jpg); */
+    
   }
-    .List {
+    .List-student {
     width: 100%;
     max-width: 600px;
-    background-color: #ffffff; /* Beyaz arka plan */
+    background-color: #616a62; /* Beyaz arka plan */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
     margin-bottom: 20px;
-    /* background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg); */
+   
   }
-  .h1{
-    color: #ffffff;
-  }
-  .ListItem {
+
+  .ListItem-student {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #fafafa; /* Hafif gri ton */
+    background-color: #ffffff; /* Hafif gri ton */
     border-radius: 6px;
   }

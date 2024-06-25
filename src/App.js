@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import StudentDashboard from "./pages/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
+import "./App.css";
 
 const { Header, Content } = Layout;
 function App() {
@@ -46,8 +47,8 @@ function App() {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Header>
-        <Menu theme="white" style={{color:"white"}} mode="horizontal" defaultSelectedKeys={["1"]}>
+      
+        <Menu className="custom-menu" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item style={{color:"white"}} key="1">
             <Link to="/">Anasayfa</Link>
           </Menu.Item>
@@ -95,7 +96,7 @@ function App() {
             </>
           )}
         </Menu>
-      </Header>
+      
       <Content>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -146,13 +147,11 @@ export default App;
 // function App() {
 //   return (
 //     <Layout style={{ minHeight: '100vh' }}>
-//       <Header>
-//         <Menu theme="white" color='black' mode="horizontal" defaultSelectedKeys={['1']}>
+//       <Menu className="custom-menu"  mode="horizontal" defaultSelectedKeys={['1']}>
 //           <Menu.Item key="1"><Link to="/">Anasayfa</Link></Menu.Item>
 //           <Menu.Item key="2"><Link to="/GirisSayfasi">Giriş yap</Link></Menu.Item>
 //           <Menu.Item key="3"><Link to="/KayitSayfasi">Kayıt ol</Link></Menu.Item>
 //         </Menu>
-//       </Header>
 //       <Content >
 //         <Routes>
 //           <Route path="/" element={<Home />} />

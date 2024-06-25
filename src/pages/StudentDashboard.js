@@ -5,9 +5,9 @@ import "./StudentDashboard.css";
 const { Content } = Layout;
 
 const EXAMS_SHEETY_URL =
-  "https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa3";
+  "https://v1.nocodeapi.com/azad321/google_sheets/TPiGGQOkKnlSrxnT?tabId=Sayfa3";
 const QUESTIONS_SHEETY_URL =
-  "https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa2";
+  "https://v1.nocodeapi.com/azad321/google_sheets/TPiGGQOkKnlSrxnT?tabId=Sayfa2";
 
 function getRandomBoolean() {
   return Math.random() >= 0.5;
@@ -105,7 +105,7 @@ function StudentDashboard({ currentUser }) {
       <Content style={{ padding: "50px" }}>
       <h1>Öğrenci Profili</h1>
         <List
-          className="List"
+          className="List-student"
           bordered
           dataSource={exams}
           renderItem={(item) => {
@@ -115,7 +115,7 @@ function StudentDashboard({ currentUser }) {
               return null;
             }
             return (
-              <List.Item className="ListItem">
+              <List.Item className="ListItem-student">
                 Sınav Kodu: {code}
                 <Button
                   onClick={() => fetchQuestions(code)}
@@ -143,7 +143,7 @@ function StudentDashboard({ currentUser }) {
                 bordered
                 dataSource={results}
                 renderItem={(item) => (
-                  <List.Item className="ListItem">
+                  <List.Item className="ListItem-student">
                     <div>
                       <p>
                         <strong>Soru:</strong> {item.question}

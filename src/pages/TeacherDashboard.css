@@ -4,29 +4,29 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    /* background-image: url(/src/assets/8sqkca4mtvl21.jpg); */
+    background-color: #8D6E63;
   }
   
   /* Başlık */
   h1 {
-    color: #000000; /* Mavi renk */
+    color: #ffffff; /* Mavi renk */
     text-align: center;
     margin-bottom: 20px;
+    font-weight: bold;
   }
   
   /* Formlar */
   .Form {
     width: 100%;
     max-width: 600px;
-    background-color: #ffffff; /* Beyaz arka plan */
+    background-color: #5D4037; /* Beyaz arka plan */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
     margin-bottom: 20px;
     backdrop-filter: blur(20px);
-    /* background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg); */
   }
-  
+ 
   /* Inputlar */
   .Input,
   .TimePicker,
@@ -88,4 +88,4 @@
       max-width: 100%;
     }
   }
-  
+

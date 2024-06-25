@@ -7,7 +7,7 @@ import "./Login.css"; // CSS dosyasını import ediyoruz
 const { Content } = Layout;
 
 const SHEETY_GET_URL =
-  "https://v1.nocodeapi.com/azad123/google_sheets/lsiLtoisEsaKAMmv?tabId=Sayfa1";
+  "https://v1.nocodeapi.com/azad321/google_sheets/TPiGGQOkKnlSrxnT?tabId=Sayfa1";
 
 function Login({ onLogin , setCurrentUser}) {
   const [users, setUsers] = useState([]);
@@ -54,7 +54,7 @@ function Login({ onLogin , setCurrentUser}) {
   };
 
   return (
-    <Layout className="back" style={{ minHeight: "100vh" }}>
+    <Layout className="Layout-back" style={{ minHeight: "100vh" }}>
       <Content
         style={{
           display: "flex",

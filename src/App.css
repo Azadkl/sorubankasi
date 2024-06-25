@@ -1,26 +1,25 @@
-.App {
-  text-align: center;
-}
 
 
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Menünün genel stilini özelleştirir */
+.custom-menu {
+  background-color: #5D4037; /* Menünün arka plan rengini değiştirir */
+ 
 }
 
-.App-link {
-  color: #61dafb;
+/* Menüdeki öğelerin stilini özelleştirir */
+.custom-menu .ant-menu-item {
+  color: #ffffff; /* Menü öğelerinin metin rengini değiştirir */
 }
-.arka {
-  background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg);
+
+.custom-menu .ant-menu-item:hover {
+  color: #000000; /* Menü öğeleri üzerine gelindiğinde metin rengini değiştirir */
 }
+
+.custom-menu .ant-menu-item-selected {
+  color: #000000; /* Seçili menü öğesinin metin rengini değiştirir */
+ 
+}
+
 
 
 

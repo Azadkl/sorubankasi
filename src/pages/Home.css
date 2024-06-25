@@ -1,24 +1,26 @@
-/* .layout {
-  background-image: url(/src/assets/8sqkca4mtvl21.jpg);
-} */
+.layout {
+  background-image: url(/src/assets/biblioteka-knigi-lestnitsy-polki-s-knigami.jpg);
+}
 
 .site-layout-content {
-  padding: 110px;
+  padding: 11px;
   min-height: 28px;
-  margin: 24px ;
+  margin: 2px ;
   text-align: center;
   animation: fadeIn 1s ease; /* Sayfa yüklendiğinde fadeIn animasyonu */
   position: relative;
-  border: 2px solid rgba(255, 255, 255, .5);
+  /* border: 2px solid rgba(255, 255, 255, .5); */
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: aliceblue;
+  background: transparent;
+   backdrop-filter: blur(2px);
   /* background-image: url(/src/assets/tekstury-seryy-fon-textures.jpg); */
 }
 
 .title {
   font-size: 36px;
-  color: #060000; /* Parlak mavi tonu */
+  color: #ffffff; /* Parlak mavi tonu */
   margin-bottom: 16px;
   text-align: center; /* Başlık ile açıklama arasındaki boşluğu azalttım */
 }
