@@ -137,7 +137,7 @@ function StudentDashboard({ currentUser }) {
                 bordered
                 dataSource={results}
                 renderItem={(item) => (
-                  <List.Item className="ListItem-student">
+                  <List.Item >
                     <div>
                       <p>
                         <strong>Soru:</strong> {item.question}
